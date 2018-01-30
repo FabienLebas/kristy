@@ -10,19 +10,27 @@ import Categories from "./views/Categories";
 import Cart from "./views/Cart";
 import ProductDetails from "./views/ProductDetails";
 import ProductsList from "./views/ProductsList";
+import DisplayNavBar from "./views/navbar";
 
 class App extends Component {
   render() {
     return (
-    <Router>
-      <div className="App">
-        <Route exact path="/" render={() => <Categories/>}/>
-        <Route path="/login" render={() => <Login/>}/>
-        <Route path="/cart" render={() => <Cart/>}/>
-        <Route path="/category/:category_id" render={(routerProps) => <ProductsList  {...routerProps}/>}/>
-        <Route path="/product/:product_id" render={(routerProps) => <ProductDetails  {...routerProps}/>}/>
-      </div>
-    </Router>
+
+      <Router>
+        <div>
+            <DisplayNavBar />
+            <Route exact path="/" component={Categories}/>
+            <Route path="/login" render={() => <Login/>}/>
+            <Route path="/cart" component={Cart}/>
+            <Route path="/category/:category_id" render={(routerProps) => <ProductsList  {...routerProps}/>}/>
+            <Route path="/product/:product_id" render={(routerProps) => <ProductDetails  {...routerProps}/>}/>
+        </div>
+      </Router>
+
+
+
+
+
     );
   }
 }
