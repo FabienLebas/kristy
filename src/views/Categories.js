@@ -1,21 +1,13 @@
 import React, { Component } from 'react';
-import getCategories from "../queries/getCategories";
+import { connect } from "react-redux";
+import { categoriesActions } from "../store/categories/actions";
+import { getCategoriesState } from "../store/categories/selectors";
 
-export default class Categories extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      categories:"Loading categories"
-    }
-  }
+
+class Categories extends Component {
 
   componentDidMount(){
-    getCategories()
-      .then(result => {
-        this.setState({
-          categories: result
-        })
-      })
+    this.props.getCategories();
   }
 
   displayRow(category){
@@ -27,20 +19,22 @@ export default class Categories extends Component {
   }
 
   render(){
-    if (this.state.categories === "Loading categories"){
+    if (this.props.loadingCategories){
       return(
         <div>
-          {this.state.categories}
+          Loading categories
         </div>
       );
     } else {
       return(
         <div className = "container">
           <table className = "table table-hover">
-            <tbody>{this.state.categories.map(category => this.displayRow(category))}</tbody>
+            <tbody>{this.props.categories.map(category => this.displayRow(category))}</tbody>
           </table>
         </div>
       )
     }
   }
 }
+
+export default connect(getCategoriesState, categoriesActions)(Categories);
