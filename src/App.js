@@ -7,21 +7,21 @@ import {
   Link
 } from 'react-router-dom';
 import Login from "./views/Login";
-import Catalog from "./views/Catalog";
+import Categories from "./views/Categories";
 import Cart from "./views/Cart";
-import Orders from "./views/Orders";
-import Product from "./views/Product";
+import ProductDetails from "./views/ProductDetails";
+import ProductsList from "./views/ProductsList";
 
 class App extends Component {
   render() {
     return (
     <Router>
       <div className="App">
-        <Route exact path="/" render={() => <Catalog/>}/>
+        <Route exact path="/" render={() => <Categories/>}/>
         <Route path="/login" render={() => <Login/>}/>
         <Route path="/cart" render={() => <Cart/>}/>
-        <Route path="/orders" render={() => <Orders/>}/>
-        <Route path="/product/:product" render={(routerProps) => <Product />}/>
+        <Route path="/category/:category_id" render={(routerProps) => <ProductsList/>}/>
+        <Route path="/product/:product_id" render={(routerProps) => <ProductDetails />}/>
       </div>
     </Router>
     );
