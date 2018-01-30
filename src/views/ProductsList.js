@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import { Link } from 'react-router-dom';
 import { productsActions } from "../store/products/actions";
 import { getProductsState } from "../store/products/selectors";
 
@@ -13,7 +14,7 @@ class ProductsList extends Component {
     return(
       <tr key={product.id}>
         <td>{product.decathlon_id}</td>
-        <td>{product.title}</td>
+        <td><Link to={`/product/${product.id}`}> {product.title} </Link></td>
       </tr>
     )
   }
