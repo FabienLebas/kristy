@@ -3,8 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 import Login from "./views/Login";
 import Categories from "./views/Categories";
@@ -20,8 +19,8 @@ class App extends Component {
         <Route exact path="/" render={() => <Categories/>}/>
         <Route path="/login" render={() => <Login/>}/>
         <Route path="/cart" render={() => <Cart/>}/>
-        <Route path="/category/:category_id" render={(routerProps) => <ProductsList/>}/>
-        <Route path="/product/:product_id" render={(routerProps) => <ProductDetails />}/>
+        <Route path="/category/:category_id" render={(routerProps) => <ProductsList  {...routerProps}/>}/>
+        <Route path="/product/:product_id" render={(routerProps) => <ProductDetails  {...routerProps}/>}/>
       </div>
     </Router>
     );

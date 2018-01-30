@@ -1,21 +1,12 @@
 import React, { Component } from 'react';
-import getProducts from "../queries/getProducts";
+import { connect } from "react-redux";
+import { productsActions } from "../store/products/actions";
+import { getProductsState } from "../store/products/selectors";
 
-export default class ProductsList extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      products:"Loading products"
-    }
-  }
+class ProductsList extends Component {
 
   componentDidMount(){
-    getProducts("9f8d8840-e22c-496f-b865-f5014710e234")
-      .then(result => {
-        this.setState({
-          products: result
-        })
-      })
+    this.props.getProducts(this.props.match.params.category_id);
   }
 
   displayRow(product){
@@ -28,20 +19,22 @@ export default class ProductsList extends Component {
   }
 
   render(){
-    if (this.state.products === "Loading products"){
+    if (this.props.loadingProducts){
       return(
         <div>
-          {this.state.products}
+          Loading products
         </div>
       );
     } else {
       return(
         <div className = "container">
           <table className = "table table-hover">
-            <tbody>{this.state.products.map(product => this.displayRow(product))}</tbody>
+            <tbody>{this.props.products.map(product => this.displayRow(product))}</tbody>
           </table>
         </div>
       )
     }
   }
 }
+
+export default connect(getProductsState, productsActions)(ProductsList);
