@@ -29,7 +29,6 @@ class Categories extends Component {
       return(
         <div>
         <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-          mon menu
         </nav>
 
         <div className = "container-fluid">
