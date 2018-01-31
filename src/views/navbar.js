@@ -21,7 +21,7 @@ class DisplayNavBar extends Component{
             </li>
             {this.props.user.id ? (
             <li className="nav-item">
-              <img alt={this.props.user.fullname} src={this.props.user.avatar} id="PictureNavBar"/>
+              <img alt={this.props.user.fullname} src={this.props.user.avatar} id="PictureNavBar" title={this.props.user.email} />
             </li>
           ) : null }
           </ul>
