@@ -28,3 +28,18 @@ a:hover {
   border-radius: 50%;
   max-height: 55px;
 }
+
+/*cart section */
+
+.order-main-container {
+  display: block;
+}
+
+.left-arrow-title {
+  color: #2070db;
+  margin-left: 10px;
+  padding-bottom: 0;
+  padding-top: 14px;
+}
+
+/*End cart section */
