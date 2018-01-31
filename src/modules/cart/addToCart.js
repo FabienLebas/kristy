@@ -19,6 +19,7 @@ export function addToCart(product) {
   }
   const targetArray = JSON.stringify(myArray);
   storeData("cart", targetArray);
+  window.location.reload();
 }
 
 
