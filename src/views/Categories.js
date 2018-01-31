@@ -28,7 +28,7 @@ class Categories extends Component {
     } else {
       return(
         <div>
-        <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+        <nav className="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
         </nav>
 
         <div className = "container-fluid">
