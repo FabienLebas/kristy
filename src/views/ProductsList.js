@@ -14,15 +14,18 @@ class ProductsList extends Component {
 
   displayRow(product){
     return(
-      <tr key={product.id}>
-        <td>{product.decathlon_id}</td>
-        <td>
-          <Link to={`/product/${product.id}`}> {product.title} </Link>
+      <div className="card col-md-3" key={product.id}>
+        <Link to={`/product/${product.id}`}>
+          <div className="price offset-9">{product.min_price}€</div>
+          <img className="card-img-top" src={`https://www.decathlon.fr/media/${product.image_path}`} alt={product.title}/>
+          <div className="card-body">
+            <div className="card-title">{product.title}</div>
+          </div>
+        </Link>
           <div className="btn btn-success" onClick={() => addToCart(product)}>
             Add to Cart
           </div>
-        </td>
-      </tr>
+      </div>
     )
   }
 
@@ -36,9 +39,9 @@ class ProductsList extends Component {
     } else {
       return(
         <div className = "container">
-          <table className = "table table-hover">
-            <tbody>{this.props.products.map(product => this.displayRow(product))}</tbody>
-          </table>
+          <div className = "row">
+            {this.props.products.map(product => this.displayRow(product))}
+          </div>
         </div>
       )
     }
