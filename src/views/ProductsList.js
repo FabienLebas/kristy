@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import { productsActions } from "../store/products/actions";
 import { getProductsState } from "../store/products/selectors";
+import { addToCart } from '../modules/cart/addToCart';
+
 
 class ProductsList extends Component {
 
@@ -14,7 +16,12 @@ class ProductsList extends Component {
     return(
       <tr key={product.id}>
         <td>{product.decathlon_id}</td>
-        <td><Link to={`/product/${product.id}`}> {product.title} </Link></td>
+        <td>
+          <Link to={`/product/${product.id}`}> {product.title} </Link>
+          <div className="btn btn-success" onClick={() => addToCart(product)}>
+            Add to Cart
+          </div>
+        </td>
       </tr>
     )
   }

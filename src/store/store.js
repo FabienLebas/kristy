@@ -3,6 +3,7 @@ import categoriesReducer from "./categories/reducer";
 import productsReducer from "./products/reducer";
 import userReducer from "./user/reducer";
 
+
 let store = createStore(combineReducers({
   categoriesReducer,
   productsReducer,
