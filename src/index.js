@@ -5,6 +5,8 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from "react-redux";
 import store from "./store/store";
+import "./modules/google_connect"; // initialize global function
+
 
 
 // On déclare le store (de store.js) qui sera valable dans toute l'application

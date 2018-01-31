@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import { signOut } from "../store/user/actions";
+import { getUserState } from "../store/user/selectors";
 
-
-export default class DisplayNavBar extends Component{
+class DisplayNavBar extends Component{
 
 
   render(){
@@ -17,6 +19,11 @@ export default class DisplayNavBar extends Component{
             <li className="nav-item">
               <Link className="nav-link" to={"/cart"}><i className="fa fa-shopping-cart fa-3x" aria-hidden="true"></i></Link>
             </li>
+            {this.props.user.id ? (
+            <li className="nav-item">
+              <img alt={this.props.user.fullname} src={this.props.user.avatar} id="PictureNavBar"/>
+            </li>
+          ) : null }
           </ul>
         </div>
       </nav>
@@ -24,3 +31,8 @@ export default class DisplayNavBar extends Component{
   }
 
 }
+
+
+
+
+export default connect(getUserState, signOut)(DisplayNavBar);
