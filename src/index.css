@@ -19,7 +19,7 @@ a {
   color: black;
 }
 
-a:hover {
+.sidebarHome:hover {
   text-decoration: none;
   color: tomato;
 }
@@ -43,3 +43,18 @@ a:hover {
 }
 
 /*End cart section */
+
+/*Products List section*/
+.card-img-top{
+  max-width: 200px;
+}
+.card:hover{
+  border-color:blue;
+}
+.price{
+  text-align: center;
+  background-color: yellow;
+}
+.addToCart{
+  vertical-align: bottom;
+}
