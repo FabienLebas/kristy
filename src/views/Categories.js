@@ -33,8 +33,8 @@ class Categories extends Component {
 
         <div className = "container-fluid">
           <div className ="row">
-            <div className= "col" >
-              <nav className = "col-sm-4 col-md-2 hidden-xs-down bg-faded sidebar">
+            <div className = "col-sm-4 col-md-2 hidden-xs-down bg-faded sidebar" >
+              <nav>
                 <ul className = "nav nav-pills flex-column">
                   {this.props.categories.map(category => this.displayRow(category))}
                 </ul>
