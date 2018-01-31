@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { productsActions } from "../store/products/actions";
 import { getProductsState } from "../store/products/selectors";
+import { addToCart } from '../modules/cart/addToCart';
 
 class ProductDetails extends Component {
 
@@ -19,7 +20,26 @@ class ProductDetails extends Component {
     } else {
       return(
         <div className = "container">
-          { product.title }
+          <div className="row">
+
+            <div className="col-6">
+              <img className="img-thumbnail rounded" alt={product.title} src={ "https://www.decathlon.fr/media/"+product.image_path} />
+            </div>
+            <div className="col-6">
+              <h3 className="text-center">{ product.title }</h3>
+              <h4><em>Description : { product.description }</em></h4>
+              <h6>Réf : { product.decathlon_id }</h6>
+              <h2>{ Math.trunc(product.min_price) } € <small>{  (product.min_price - Math.trunc(product.min_price))*100 }</small></h2>
+              <h2>rating : { product.rating }</h2>
+
+
+
+              <div className="btn btn-success btn-block" onClick={() => addToCart(product)}>
+                Add to Cart
+              </div>
+
+            </div>
+          </div>
         </div>
       )
     }
