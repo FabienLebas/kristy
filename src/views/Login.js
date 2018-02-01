@@ -6,16 +6,10 @@ import { getUserState } from "../store/user/selectors";
 
 class Login extends Component {
 
-
-
-
   render(){
-
-
       return(
         <div>
         {this.props.user.id ? (
-
           <div className="signout btn btn-danger" onClick={this.props.signOut}>
             Sign out
           </div>
@@ -26,22 +20,14 @@ class Login extends Component {
             data-theme="dark"
           />
         )}
-
-
-
         {this.props.user.id ? (
-
           <div>
             <img alt={this.props.user.fullname} src={this.props.user.avatar} />
             <span>{this.props.user.fullname}</span>
           </div>
         ) : null}
-
-
-
         </div>
       );
-
   }
 }
 
