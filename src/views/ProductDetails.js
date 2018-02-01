@@ -29,13 +29,13 @@ class ProductDetails extends Component {
               <h3 className="text-center">{ product.title }</h3>
               <h4><em>Description : { product.description }</em></h4>
               <h6>Réf : { product.decathlon_id }</h6>
-              <h2>{ Math.trunc(product.min_price) } € <small>{  (product.min_price - Math.trunc(product.min_price))*100 }</small></h2>
+              <h2>{ Math.trunc(product.min_price) }€<sup>{  Math.round((product.min_price - Math.trunc(product.min_price))*100) }</sup></h2>
               <h2>rating : { product.rating }</h2>
 
 
 
               <div className="btn btn-success btn-block" onClick={() => addToCart(product)}>
-                Add to Cart
+                Ajouter au panier
               </div>
 
             </div>

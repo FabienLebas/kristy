@@ -16,14 +16,14 @@ class ProductsList extends Component {
     return(
       <div className="card col-md-3" key={product.id}>
         <Link to={`/product/${product.id}`}>
-          <div className="price offset-9">{product.min_price}€</div>
+          <div className="price offset-9">{ Math.trunc(product.min_price) }€<sup>{  Math.round((product.min_price - Math.trunc(product.min_price))*100) }</sup></div>
           <img className="card-img-top" src={`https://www.decathlon.fr/media/${product.image_path}`} alt={product.title}/>
           <div className="card-body">
             <div className="card-title">{product.title}</div>
           </div>
         </Link>
           <div className="btn btn-success" onClick={() => addToCart(product)}>
-            Add to Cart
+            Ajouter au panier
           </div>
       </div>
     )
