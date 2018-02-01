@@ -17,6 +17,7 @@
     "stripe": "^5.4.0"
   },
   "scripts": {
+    "prestart": "yarn build",
     "start": "node server.js",
     "build": "react-scripts build",
     "dev": "react-scripts start",
