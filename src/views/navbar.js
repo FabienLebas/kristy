@@ -6,11 +6,15 @@ import { getUserState } from "../store/user/selectors";
 
 class DisplayNavBar extends Component{
   getNumberOfProductsInCart(){
-    let total = 0;
-    JSON.parse(localStorage.getItem("cart")).map(element => {
-      total = total + element.qty;
-    } );
-    return total;
+    if(JSON.parse(localStorage.getItem("cart")).length >0){
+      let total = 0;
+      JSON.parse(localStorage.getItem("cart")).map(element => {
+        total = total + element.qty;
+      } );
+      return total;
+    } else {
+      return 0;
+    }
   }
 
   render(){
