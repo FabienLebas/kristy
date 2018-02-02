@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { productsActions } from "../store/products/actions";
 import { getProductsState } from "../store/products/selectors";
 import { addToCart } from '../modules/cart/addToCart';
+import ReactStars from 'react-stars';
 
 
 class ProductsList extends Component {
@@ -20,6 +21,7 @@ class ProductsList extends Component {
           <img className="card-img-top" src={`https://www.decathlon.fr/media/${product.image_path}`} alt={product.title}/>
           <div className="card-body">
             <div className="card-title">{product.title}</div>
+            <div><ReactStars count= {5} value = {product.rating} color2= {'#ffd700'} edit= {false} size = {15}/></div>
           </div>
         </Link>
           <div className="btn btn-success" onClick={() => addToCart(product)}>
