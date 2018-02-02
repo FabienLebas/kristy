@@ -41,8 +41,11 @@ class Categories extends Component {
               </nav>
             </div>
             <div className= "col">
-              <main classname = "col-sm-8 offset-sm-3 col-md-10 offset-md-2 pt-3" >
-                <h1> TEST </h1>
+              <main className = "col-sm-8 offset-sm-3 col-md-10 offset-md-2 pt-3" >
+                <h1>Bienvenue chez Kristy !</h1>
+                <video id="myVideo" loop autoPlay>
+                  <source src="./homePage.mp4" type="video/mp4"/>
+                </video>
               </main>
             </div>
           </div>
