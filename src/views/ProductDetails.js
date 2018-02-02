@@ -3,6 +3,10 @@ import { connect } from "react-redux";
 import { productsActions } from "../store/products/actions";
 import { getProductsState } from "../store/products/selectors";
 import { addToCart } from '../modules/cart/addToCart';
+import ReactStars from 'react-stars';
+
+
+
 
 class ProductDetails extends Component {
 
@@ -30,10 +34,9 @@ class ProductDetails extends Component {
               <h4><em>Description : { product.description }</em></h4>
               <h6>Réf : { product.decathlon_id }</h6>
               <h2>{ Math.trunc(product.min_price) }€<sup>{  Math.round((product.min_price - Math.trunc(product.min_price))*100) }</sup></h2>
-              <h2>rating : { product.rating }</h2>
-
-
-
+                <div>
+                    <ReactStars count= {5} value = {product.rating} color2= {'#ffd700'} edit= {false} size = {25}/>
+                </div>
               <div className="btn btn-success btn-block" onClick={() => addToCart(product)}>
                 Ajouter au panier
               </div>
