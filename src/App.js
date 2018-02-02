@@ -11,6 +11,7 @@ import Cart from "./views/Cart";
 import ProductDetails from "./views/ProductDetails";
 import ProductsList from "./views/ProductsList";
 import DisplayNavBar from "./views/navbar";
+import PaymentOK from "./views/PaymentOK";
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
             <Route exact path="/" component={Categories}/>
             <Route path="/login" render={() => <Login/>}/>
             <Route path="/cart" component={Cart}/>
+            <Route path="/paymentOK" component={PaymentOK}/>
             <Route path="/category/:category_id" render={(routerProps) => <ProductsList  {...routerProps}/>}/>
             <Route path="/product/:product_id" render={(routerProps) => <ProductDetails  {...routerProps}/>}/>
         </div>
