@@ -35,8 +35,8 @@ class ProductDetails extends Component {
               <h6>Réf : { product.decathlon_id }</h6>
               <h2>{ Math.trunc(product.min_price) }€<sup>{  Math.round((product.min_price - Math.trunc(product.min_price))*100) }</sup></h2>
                 <div>
-                    <ReactStars count= {5} value = {product.rating} color2= {'#ffd700'} edit= {false}/>
-                    <h3> {product.rating} / 5 </h3>
+                    <ReactStars count= {5} value = {product.rating} color2= {'#ffd700'} edit= {false} size = {25}/>
+                    <h4> {product.rating} / 5 </h4>
                 </div>
               <div className="btn btn-success btn-block" onClick={() => addToCart(product)}>
                 Ajouter au panier
