@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import { Redirect } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import displayCartContent from '../modules/cart/displayCartContent';
 import {removeFromCart, addToCart } from '../modules/cart/addToCart';
 import StripeCheckout from "react-stripe-checkout";
@@ -7,6 +9,7 @@ import { signOut } from "../store/user/actions";
 import { getUserState } from "../store/user/selectors";
 
 class Cart extends Component {
+
 
   prepareCartForServer(){
     return JSON.parse(localStorage.getItem("cart")).map(element => {
@@ -30,10 +33,13 @@ class Cart extends Component {
       .then(data => {
         if (data.status === "succeeded") {
           console.log(data);
-          // dispatch a success
+          // vidage du panier et redirection vers page de paiement OK
+          localStorage.removeItem("cart");
+          this.props.history.replace('/paymentOK');
         } else {
           console.warn(data);
-          // dispatch an error
+          // redirection vers page "paiement KO"
+          console.log(this.state.etatPaiement);
         }
       });
   };
@@ -62,6 +68,9 @@ displayItem(element, qty){
 }
 
   render(){
+
+
+
     return(
       <div className = "container">
         <div className = "order-main-container">
@@ -99,7 +108,7 @@ displayItem(element, qty){
                      ) : null
                    }
                  </td>
-                 <td>{Math.round(this.calculateTotal() * 100) / 100}€</td></tr></tfoot>
+                 <td>{Math.round(this.calculateTotal() * 100) / 100} €</td></tr></tfoot>
           </table>
         </div>
 
