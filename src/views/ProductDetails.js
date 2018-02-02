@@ -3,6 +3,10 @@ import { connect } from "react-redux";
 import { productsActions } from "../store/products/actions";
 import { getProductsState } from "../store/products/selectors";
 import { addToCart } from '../modules/cart/addToCart';
+import ReactStars from 'react-stars';
+
+
+
 
 class ProductDetails extends Component {
 
@@ -30,10 +34,10 @@ class ProductDetails extends Component {
               <h4><em>Description : { product.description }</em></h4>
               <h6>Réf : { product.decathlon_id }</h6>
               <h2>{ Math.trunc(product.min_price) }€<sup>{  Math.round((product.min_price - Math.trunc(product.min_price))*100) }</sup></h2>
-              <h2>rating : { product.rating }</h2>
-
-
-
+                <div>
+                    <ReactStars count= {5} value = {product.rating} color2= {'#ffd700'} edit= {false}/>
+                    <h3> {product.rating} / 5 </h3>
+                </div>
               <div className="btn btn-success btn-block" onClick={() => addToCart(product)}>
                 Ajouter au panier
               </div>
@@ -47,3 +51,26 @@ class ProductDetails extends Component {
 }
 
 export default connect(getProductsState, productsActions)(ProductDetails);
+
+
+/*
+
+<div class="rating">
+  <p>
+    {% for i in range(1, 6) -%}
+      {% if product.rating >= (i) %}
+      <span class="fa fa-star checked"></span>
+      {% elif product.rating > (i - 0.5) %}
+      <span class="fa fa-star-half-o checked "></span>
+      {% else %}
+      <span class="fa fa-star"></span>
+      {% endif %}
+    {% endfor %}
+      <br>
+        Note du public : {{product.rating}} / 5
+  </p>
+</div>
+
+
+
+*/
