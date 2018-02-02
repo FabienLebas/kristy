@@ -5,7 +5,13 @@ import { signOut } from "../store/user/actions";
 import { getUserState } from "../store/user/selectors";
 
 class DisplayNavBar extends Component{
-
+  getNumberOfProductsInCart(){
+    let total = 0;
+    JSON.parse(localStorage.getItem("cart")).map(element => {
+      total = total + element.qty;
+    } );
+    return total;
+  }
 
   render(){
     return (
@@ -17,7 +23,12 @@ class DisplayNavBar extends Component{
         <div className="collapse navbar-collapse offset-9" id="navbarNavDropdown">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link" to={"/cart"}><i className="fa fa-shopping-cart fa-3x" aria-hidden="true"></i></Link>
+              <div className="item">
+                <div>
+                  <span className="badge badge-pill badge-warning">{this.getNumberOfProductsInCart()}</span>
+                  <Link className="nav-link" to={"/cart"}><i className="fa fa-shopping-cart fa-3x" aria-hidden="true"></i></Link>
+                </div>
+              </div>
             </li>
             {this.props.user.id ? (
             <li className="nav-item">
