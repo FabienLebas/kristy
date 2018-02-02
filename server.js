@@ -84,6 +84,8 @@ app.listen(port, function () {
 
 app.use("/static", express.static('build/static'));
 
+app.use("/public", express.static('public'));
+
 app.get("*", function (request, result) {
   result.sendFile(__dirname + "/build/index.html");
 });
