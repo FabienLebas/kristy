@@ -51,26 +51,3 @@ class ProductDetails extends Component {
 }
 
 export default connect(getProductsState, productsActions)(ProductDetails);
-
-
-/*
-
-<div class="rating">
-  <p>
-    {% for i in range(1, 6) -%}
-      {% if product.rating >= (i) %}
-      <span class="fa fa-star checked"></span>
-      {% elif product.rating > (i - 0.5) %}
-      <span class="fa fa-star-half-o checked "></span>
-      {% else %}
-      <span class="fa fa-star"></span>
-      {% endif %}
-    {% endfor %}
-      <br>
-        Note du public : {{product.rating}} / 5
-  </p>
-</div>
-
-
-
-*/
